@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Categoría{% endblock %}
+{% block header %}Categoría{% endblock %}
+{% block content %}
+<form method="post" novalidate class="row g-3">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  <div class="col-12">
+    <label class="form-label">Nombre</label>
+    {{ form.nombre }}
+    {{ form.nombre.errors }}
+  </div>
+  <div class="col-12">
+    <label class="form-label">Descripción</label>
+    {{ form.descripcion }}
+    {{ form.descripcion.errors }}
+  </div>
+  <div class="col-12">
+    <button class="btn btn-success" type="submit">Guardar</button>
+    <a class="btn btn-secondary" href="{% url 'categoria_list' %}">Volver</a>
+  </div>
+</form>
+{% endblock %}
